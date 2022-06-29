@@ -39,7 +39,7 @@ public class TestController {
 	@GetMapping("/test22")
 	public String test22()
 	{
-		return "Bonjour";
+		return "Bonjour!";
 	}
 	
 	@RequestMapping(value="/authenticate" ,method =RequestMethod.POST)
