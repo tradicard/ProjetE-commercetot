@@ -43,10 +43,14 @@ export class AuthComponent implements OnInit {
             
             this.u=response
             console.log(this.u.role.idRole)
+            
             if(this.u.role.idRole===1){
               this.router.navigateByUrl('Admin')
             }
-            this.router.navigateByUrl('')
+            else{
+              this.router.navigateByUrl('')
+            }
+            
           sessionStorage.setItem("u",JSON.stringify(this.u))
           
           let uStr = sessionStorage.getItem("u");

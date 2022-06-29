@@ -1,4 +1,6 @@
 <p>acceuil-admin works!</p>
+<head> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
 <br>
 <form (ngSubmit)="searchprod()">
     <input type="text" name="cherche" (ngModel)="cherche">
@@ -12,3 +14,4 @@
 <button (click)="afficherProduitsC()">Afficher liste des produits pour les clients</button>
 <button (click)="afficherPaniers()">Faire son panier</button>
 <button (click)="afficherCommandes()">Afficher les commandes</button>
+<button (click)="showPDF()" type="button" class="btn btn-dark">PDF des commandes</button>

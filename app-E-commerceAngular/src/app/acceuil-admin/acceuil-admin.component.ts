@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Produit } from '../models/produit';
+import { CommandeServiceService } from '../Services/commande-service.service';
 
 @Component({
   selector: 'app-acceuil-admin',
@@ -10,7 +11,8 @@ import { Produit } from '../models/produit';
 export class AcceuilAdminComponent implements OnInit {
   cherche!:string
   p!:Produit
-    constructor(private router:Router) { }
+  blob!:Blob;
+    constructor(private router:Router, private service:CommandeServiceService) { }
   
     ngOnInit(): void {
       this.p= new Produit()
@@ -49,5 +51,21 @@ export class AcceuilAdminComponent implements OnInit {
   afficherCommandes(){
     this.router.navigateByUrl('afficherCommandes')
   }
+ /*  afficherPDFCommandes(){
+    this.service.getPDfCommandes().subscribe()
+  } */
+  public showPDF(): void {
+    this.service.getPdf().subscribe((data) => {
 
+      this.blob = new Blob([data], {type: 'application/pdf'});
+    
+      var downloadURL = window.URL.createObjectURL(data);
+      var link = document.createElement('a');
+      link.href = downloadURL;
+      link.download = "help.pdf";
+      link.click();
+    
+    });
+
+}
 }

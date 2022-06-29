@@ -70,5 +70,13 @@ public class CVSController {
 	        
 	        icsv.writeEmployeesToCsv(servletResponse.getWriter());
 	 }
+	 @GetMapping("/exportCSVcommandes")
+	 public void getAllEmployeesInCsv2(HttpServletResponse servletResponse) throws IOException {
+	        servletResponse.setContentType("text/csv");
+	        ////En mettant Content-Disposition à attachment, le doc est téléchargé.
+	        servletResponse.addHeader("Content-Disposition","attachment; filename=\"commandes.csv\"");
+	        
+	        icsv.writeEmployeesToCsv(servletResponse.getWriter());
+	 }
 
 }

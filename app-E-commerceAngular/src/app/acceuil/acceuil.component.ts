@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Produit } from '../models/produit';
+import { CommandeServiceService } from '../Services/commande-service.service';
 
 @Component({
   selector: 'app-acceuil',
@@ -11,7 +12,7 @@ import { Produit } from '../models/produit';
 export class AcceuilComponent implements OnInit {
 cherche!:string
 p!:Produit
-  constructor(private router:Router) { }
+  constructor(private router:Router, private service:CommandeServiceService) { }
 
   ngOnInit(): void {
     this.p= new Produit()
@@ -49,6 +50,9 @@ searchprod(): void {
 afficherCommandes(){
   this.router.navigateByUrl('afficherCommandes')
 }
+/* afficherPDFCommandes(){
+  this.service.getPDfCommandes().subscribe()
+} */
 
   
 

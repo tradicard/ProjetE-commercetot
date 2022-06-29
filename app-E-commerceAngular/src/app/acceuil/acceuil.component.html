@@ -4,11 +4,12 @@
 <p>acceuil works!</p>
 <br>
 <form (ngSubmit)="searchprod()">
-    <input type="text" name="cherche" (ngModel)="cherche">
+    <input type="text" name="nomProduit" (ngModel)="p.nomProduit">
     <button type="submit">Valider (probleme de cache)</button>
 </form>
 <form (ngSubmit)="searchprod()">
     <input type="text" name="cherche" (ngModel)="cherche">
+    <button type="submit">Valider (probleme de cache)</button>
 </form>
 <br>
 <button (click)="afficherCategories()" type="button" class="btn btn-primary">Afficher liste des categorie</button>
@@ -18,4 +19,5 @@
 <button (click)="afficherProduitsC()" type="button" class="btn btn-warning btn-rounded">Afficher liste des produits pour les clients</button>
 <button (click)="afficherPaniers()" type="button" class="btn btn-info btn-rounded">Faire son panier</button>
 <button (click)="afficherCommandes()" type="button" class="btn btn-light btn-rounded">Afficher les commandes</button>
+<!-- <button (click)="afficherPDFCommandes()" type="button" class="btn btn-dark">PDF des commandes</button> -->
 
