@@ -1,0 +1,36 @@
+<p>modif-ligne-panier works!</p>
+Produit Original:<table>
+    <tr>
+        <td>Produit</td>
+        <td>Quantite</td>
+    </tr>
+
+    <tr>
+        
+        <td>{{l.produit.nomProduit}}</td> 
+        <td >{{l.quantite}}</td>
+        
+    </tr>  
+</table>
+<form (ngSubmit)="save()">
+	<table>
+		<tr>
+		    <td>Produit</td>
+            <td>Quantite</td>
+            <td>Modifier</td>
+            <td>Supprimmer</td>
+        </tr>
+
+        <tr>
+            
+		    <td><select [(ngModel)]="selectedOption" name="selectedOption">
+                <option value="">Choisir une categorie</option>
+                <option *ngFor="let p of produits" value="{{p.idProduit}}">{{p.nomProduit}}</option>   
+            </select></td> 
+			<td ><input type="number" name="quantite" [(ngModel)]="l.quantite"/></td>
+			<td><button type="submit">Valider</button></td>
+            <td><button (click)="suppr(l.idLignePanier)">Supprimer</button></td>
+            
+        </tr>  
+	</table>
+</form>

@@ -1,0 +1,57 @@
+<p>listeprod works!</p>
+<br>
+<form (ngSubmit)="save()">
+             <table>
+             	<tr>
+                    <td>Nom du Produit</td>
+                    <td><input type="text" name="nomProduit" [(ngModel)]="p.nomProduit"/></td>
+                </tr>
+                <tr>
+                    <td>Selectionner le fichier</td>
+                    <td><input type="file" name="fileInput" (change)="selectEvent($event)"/></td>
+                </tr>
+                <tr>
+                    <td>Quantite</td>
+                    <td><input type="number" name="quantite" [(ngModel)]="p.quantite"/></td>
+                </tr>
+                <tr>
+                <td>Categorie :<select [(ngModel)]="selectedOption" name="selectedOption">
+                    <option *ngFor="let c of categories" value="{{c.idCategorie}}">{{c.nomCategorie}}</option>   
+                </select></td>
+				</tr>
+                <tr>
+                    <td><button type="submit">Valider</button></td>
+                </tr>
+            </table>
+</form>
+
+<br>
+
+
+<table>
+    <tr>
+        <td>id</td>
+        <td>description</td>
+        <td>Image</td>
+        <td>Quantite</td>
+        <td>Categorie</td>
+        <td>Supprimer</td>
+        <td>Modifier</td>
+    </tr>
+
+    
+    
+    <tr *ngFor="let p of produits">
+        <td>{{p.idProduit}}</td>
+        <td>{{p.nomProduit}}</td>
+        <td><img src="http://localhost:8015/{{p.img}}" width="200px"> </td>
+        <td>{{p.quantite}}</td>
+        <td>{{p.categorie.nomCategorie}}</td>
+        <td><button (click)="deletion(p.idProduit)">Supprimer {{p.nomProduit}}</button></td>
+        <td><button (click)="modification(p.idProduit)">Modifier {{p.nomProduit}}</button></td>
+    </tr>
+    
+    
+</table>
+
+<button (click)="retour()">Acceuil</button>

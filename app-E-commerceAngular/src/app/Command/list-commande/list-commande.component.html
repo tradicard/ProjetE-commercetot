@@ -1,0 +1,39 @@
+<p>list-commande works!</p>
+<div *ngFor="let c of commandes">
+	<table>
+	
+		<tr>	
+			<td>ID commande</td>
+			<td>date de la commande</td>
+			<td>Utilisateur</td>
+		</tr>	
+		<tr>
+			<td>{{c.idCommande }}</td>
+			<td>{{c.dateCommande }}</td>
+			<td>{{c.utilisateur.id}}</td>
+		</tr>
+	</table>
+	<table>
+        <div *ngFor="let l of lignesCommandes">
+            <div *ngIf="l.commande.idCommande===c.idCommande">
+		<tr>
+            <td>Produit</td>	
+			<td>Image produit</td>
+			<td>Quantite achete</td>
+			<td>Quantite restante</td>
+		</tr>
+
+		
+            
+		<tr >
+			<td>{{l.produit.nomProduit }}</td>
+			<td><img src="http://localhost:8015/{{l.produit.img}}" height="200px"></td>
+			<td>{{l.quantite }}</td>
+			<td>{{l.produit.quantite }}</td>
+		</tr>
+		<br>
+        </div>
+        </div>
+	
+	</table>
+</div>

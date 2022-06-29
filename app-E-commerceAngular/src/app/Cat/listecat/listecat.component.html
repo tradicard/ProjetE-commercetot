@@ -1,0 +1,33 @@
+<p>listecat works!</p>
+<br>
+<form (ngSubmit)="saveCategorie(c)" >
+    Nom de la categorie: <input type="text" name="nomCategorie" [(ngModel)]="c.nomCategorie" /><br>
+    Description: <input type="text" name="description" [(ngModel)]="c.description" /><br>
+    <button type="submit">Valider</button>
+</form>
+<br>
+<table>
+    <tr>
+        <td>id</td>
+        <td>Nom de categorie</td>
+        <td>description</td>
+        <td>Produits</td>
+        <td>Supprimer</td>
+        <td>Modifier</td>
+    </tr>
+
+    
+    
+    <tr *ngFor="let c of categories">
+        <td>{{c.idCategorie}}</td>
+        <td>{{c.nomCategorie}}</td>
+        <td>{{c.description}}</td>
+        <td><button (click)="search(p.idProduit)">Produits {{c.nomCategorie}}</button></td>
+        <td><button (click)="deletion(c.idCategorie)">Supprimer {{c.nomCategorie}}</button></td>
+        <td><button (click)="modification(c.idCategorie)">Modifier {{c.nomCategorie}}</button></td>
+    </tr>
+    
+    
+</table>
+<button (click)="retour()">Acceuil</button>
+

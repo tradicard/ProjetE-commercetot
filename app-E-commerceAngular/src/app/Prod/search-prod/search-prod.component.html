@@ -1,0 +1,22 @@
+<p>search-prod works!</p>
+<table>
+    <tr>
+        <td>id</td>
+        <td>Nom du Produit</td>
+        <td>Image</td>
+        <td>Quantite</td>
+        <td>Categorie</td>
+    </tr>
+
+    
+    
+    <tr>
+        <td>{{p.idProduit}}</td>
+        <td>{{p.nomProduit}}</td>
+        <td><img src="http://localhost:8015/{{p.img}}" width="200px"> </td>
+        <td>{{p.quantite}}</td>
+        <td>{{p.categorie.nomCategorie}}</td>
+    </tr>
+    
+    
+</table>

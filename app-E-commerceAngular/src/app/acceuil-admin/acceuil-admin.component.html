@@ -1,0 +1,14 @@
+<p>acceuil-admin works!</p>
+<br>
+<form (ngSubmit)="searchprod()">
+    <input type="text" name="cherche" (ngModel)="cherche">
+    <button type="submit">Valider</button>
+</form>
+<br>
+<button (click)="afficherCategories()">Afficher liste des categorie</button>
+<button (click)="connectionutil()">Connection</button>
+<button (click)="logout()">deconnection</button>
+<button (click)="afficherProduits()">Afficher liste des produits</button>
+<button (click)="afficherProduitsC()">Afficher liste des produits pour les clients</button>
+<button (click)="afficherPaniers()">Faire son panier</button>
+<button (click)="afficherCommandes()">Afficher les commandes</button>

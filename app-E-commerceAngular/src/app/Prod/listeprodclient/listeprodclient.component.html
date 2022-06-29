@@ -1,0 +1,33 @@
+<p>listeprodclient works!</p>
+<form (ngSubmit)="cate()">
+    Categorie: <select [(ngModel)]="selectedOption" name="selectedOption">
+        <option *ngFor="let c of categories" value="{{c.idCategorie}}">{{c.nomCategorie}}</option>   
+    </select>
+    <br>
+    <button type="submit">Valider</button>
+</form>
+<button (click)="reset()">Reset</button>
+<br>
+<table>
+    <tr>
+        <td>id</td>
+        <td>Nom du Produit</td>
+        <td>Image</td>
+        <td>Quantite</td>
+        <td>Categorie</td>
+    </tr>
+
+    
+    
+    <tr *ngFor="let p of produits">
+        <td>{{p.idProduit}}</td>
+        <td>{{p.nomProduit}}</td>
+        <td><img src="http://localhost:8015/{{p.img}}" width="200px"> </td>
+        <td>{{p.quantite}}</td>
+        <td>{{p.categorie.nomCategorie}}</td>
+    </tr>
+    
+    
+</table>
+
+<button (click)="retour()">Acceuil</button>

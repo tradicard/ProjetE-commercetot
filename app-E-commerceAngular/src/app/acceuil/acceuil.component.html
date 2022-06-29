@@ -1,0 +1,21 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<p>acceuil works!</p>
+<br>
+<form (ngSubmit)="searchprod()">
+    <input type="text" name="cherche" (ngModel)="cherche">
+    <button type="submit">Valider</button>
+</form>
+<form (ngSubmit)="searchprod()">
+    <input type="text" name="cherche" (ngModel)="cherche">
+</form>
+<br>
+<button (click)="afficherCategories()" type="button" class="btn btn-primary">Afficher liste des categorie</button>
+<button (click)="connectionutil()" type="button" class="btn btn-secondary btn-rounded">Connection</button>
+<button (click)="logout()" type="button" class="btn btn-success btn-rounded">deconnection</button>
+<button (click)="afficherProduits()" type="button" class="btn btn-danger btn-rounded">Afficher liste des produits</button>
+<button (click)="afficherProduitsC()" type="button" class="btn btn-warning btn-rounded">Afficher liste des produits pour les clients</button>
+<button (click)="afficherPaniers()" type="button" class="btn btn-info btn-rounded">Faire son panier</button>
+<button (click)="afficherCommandes()" type="button" class="btn btn-light btn-rounded">Afficher les commandes</button>
+

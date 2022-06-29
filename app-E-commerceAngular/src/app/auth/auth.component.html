@@ -1,0 +1,11 @@
+<p>auth works!</p>
+
+<form (ngSubmit)="login()" >
+    Username: <input type="text" name="username" [(ngModel)]="username"  />
+    Password: <input type="password" name="password" [(ngModel)]="password" />
+    <button type="submit">Valider</button>
+</form>
+<br>
+<button (click)="register()">Register</button>
+<h1 *ngIf="invalidLogin">Ce n'est pas le bon mot de passe ou identifiant</h1>
+<br>

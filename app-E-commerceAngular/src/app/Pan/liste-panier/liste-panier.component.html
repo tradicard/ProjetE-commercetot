@@ -1,0 +1,76 @@
+<p>liste-panier works!</p>
+<h1 *ngIf="doublon">Vous avez deux fois le meme produit</h1>
+<h1 *ngIf="trop">Votre demande est superieur a notre stock</h1>
+<form (ngSubmit)="Ajouter()">
+    <button type="submit">Creer votre panier</button>
+</form>
+<br>
+<table>
+    <tr>
+        <td>id</td>
+        <td>Produits</td>
+        <td>Action1</td>
+        <td>Action2</td>
+        <td>Action3</td>
+    </tr>
+
+    
+    
+    <tr *ngFor="let pa of paniers">
+        <td>{{pa.idPanier}}</td>
+        <td><div *ngFor="let l of lignesPanier">
+            <div *ngIf="l.panier.idPanier===pa.idPanier">{{l.quantite}}x{{l.produit.nomProduit }}</div>
+        </div></td>
+        <td><button (click)="confirm(pa.idPanier)">Confirmer le panier</button></td>
+        <td><button (click)="modif(pa.idPanier)">Modifier le panier</button></td>
+        <td><button (click)="suppr(pa.idPanier)">Supprimer le Panier</button></td>
+
+    </tr>
+
+    
+    
+</table>
+<br>
+<form (ngSubmit)="cate()">
+    Categorie: <select [(ngModel)]="selectedOption" name="selectedOption">
+        <option *ngFor="let c of categories" value="{{c.idCategorie}}">{{c.nomCategorie}}</option>   
+    </select>
+    <br>
+    <button type="submit">Valider</button>
+</form>
+<button (click)="reset()">Reset</button>
+<br>
+<table>
+    <tr>
+        <td>id</td>
+        <td>Nom du Produit</td>
+        <td>Image</td>
+        <td>Quantite</td>
+        <td>Categorie</td>
+        <td>Quantite a acheter</td>
+        <td>Id du panier</td>
+        <td>Ajouter au panier</td>
+    </tr>
+
+    
+    
+    <tr *ngFor="let p of produits">
+        <td>{{p.idProduit}}</td>
+        <td>{{p.nomProduit}}</td>
+        <td><img src="http://localhost:8015/{{p.img}}" width="200px"> </td>
+        <td>{{p.quantite}}</td>
+        <td>{{p.categorie.nomCategorie}}</td>
+        <td><form (ngSubmit)="addPanier(p.idProduit)">
+            <input type="number" name="quantite" [(ngModel)]="lp.quantite"/>
+            <input type="hidden"  name="idProduit" value="{{p.idProduit }}"/>
+            Panier :<select [(ngModel)]="selectedOption2" name="selectedOption2">
+                <option *ngFor="let pa of paniers" value="{{pa.idPanier}}">{{pa.idPanier}}</option>   
+            </select>
+            <td><button type="submit">Valider</button></td>
+        </form></td>
+    </tr>
+    
+    
+</table>
+
+<button (click)="retour()">Acceuil</button>

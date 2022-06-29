@@ -1,0 +1,14 @@
+<p>add-utilisateur works!</p>
+<h1 *ngIf="errorr">Ce Username existe deja</h1>
+<form (ngSubmit)="save()">
+
+    Nom: <input type="text" name="nom" [(ngModel)]="u.nom" /><br>
+    Prenom: <input type="text" name="prenom" [(ngModel)]="u.prenom" /><br>
+    Date de naissance: <input type="text" name="dateNaissance" [(ngModel)]="u.dateNaissance" /><br>
+    Ussername: <input type="text" name="username" [(ngModel)]="u.username" /><br>
+    Password: <input type="password" name="password" [(ngModel)]="u.password" /><br>
+    Mail: <input type="text" name="mail" [(ngModel)]="u.mail" /><br>
+    <button type="submit">Valider</button>
+
+
+</form>

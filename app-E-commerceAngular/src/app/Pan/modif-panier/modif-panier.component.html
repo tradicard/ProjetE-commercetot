@@ -1,0 +1,22 @@
+<p>modif-panier works!</p>
+
+	<table>
+		<tr>
+		    <td>Produit</td>
+            <td>Quantite</td>
+            <td>Modifier</td>
+            <td>Supprimmer</td>
+        </tr>
+        
+        <tr *ngFor="let l of lignesPanier; let i=index">
+            
+		    <td>{{l.produit.nomProduit}}</td> 
+			<td >{{l.quantite}}</td>
+			<td><button (click)="save(l.idLignePanier)">Modifier</button></td>
+            <td><button (click)="suppr(l.idLignePanier)">Supprimer</button></td>
+            
+        </tr>  
+	</table>
+
+<br>
+<button (click)="retour()">Confirmer</button>
